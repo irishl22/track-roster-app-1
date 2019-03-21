@@ -57,7 +57,7 @@ module.exports = {
 
   createMale: (req, res) => {
     let { name, gender, event, bestMark, imageUrl } = req.body
-    if(gender === "male") {
+    if(gender === "Male") {
         let male = { 
           id: id++, 
           name, 
@@ -72,10 +72,10 @@ module.exports = {
 
     res.send(mens)
   }, 
-  
+
   createFemale: (req, res) => {
     let { name, gender, event, bestMark, imageUrl } = req.body
-    if(gender === "female") {
+    if(gender === "Female") {
         let female = { 
           id: id++, 
           name, 
