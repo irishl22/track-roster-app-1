@@ -1,30 +1,38 @@
 import React, { Component } from 'react'
 
 class Results extends Component {
-    constructor(props) {
+    constructor() {
         super();
         this.state = {
-            results = []
+            input: '',
+            results: []
         }
 
     }
     
     handleChange = (e) => {
         this.setState = {
-            results: e.target.value
+            input: e.target.value
         }
     }
 
     handleClick = () => {
-        
+        this.setState({
+            results: [...this.state.results, this.state.input],
+            input: ''
+        })
     }
 
     render() {
+        let resultsList = this.state.results.map((item) => {
+            return <p>{item}</p>
+        })
+
     return (
       <div>
-          <input onClick="" value="text" placeholder="Enter Results"/>
-          <button onClick={this.handleClick}>Add</button>
-        
+          <input type="text" placeholder="Enter Results" onChange={this.handleChange}/>
+          <button onClick={this.handleClick}>Add</button>  
+          {resultsList}
       </div>
     )
   }

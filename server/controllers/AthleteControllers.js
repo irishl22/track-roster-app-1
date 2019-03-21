@@ -3,7 +3,7 @@ let id = 1
     {
       id: id++,
       name: "Lauren Irish",
-      gender: "Female",
+      gender: "female",
       event: "400m Hurdles",
       bestMark: "61.40",
       imageUrl: ""
@@ -11,7 +11,7 @@ let id = 1
     {
       id: id++,
       name: "Claudia Cox",
-      gender: "Female",
+      gender: "female",
       event: "400m Hurdles",
       bestMark: "59.01",
       imageUrl: ""
@@ -21,7 +21,7 @@ let mens = [
     {
         id: id++,
         name: "Nick Rack",
-        gender: "Male",
+        gender: "male",
         event: "110m Hurdles",
         bestMark: "14.01",
         imageUrl: ""
@@ -30,7 +30,7 @@ let mens = [
     {
         id: id++,
         name: "Luis Carson",
-        gender: "Male",
+        gender: "male",
         event: "High Jump",
         bestMark: "6",
         imageUrl: ""
@@ -57,7 +57,7 @@ module.exports = {
 
   createMale: (req, res) => {
     let { name, gender, event, bestMark, imageUrl } = req.body
-    if(gender === "Male") {
+    if(gender === "male") {
         let male = { 
           id: id++, 
           name, 
@@ -75,7 +75,7 @@ module.exports = {
 
   createFemale: (req, res) => {
     let { name, gender, event, bestMark, imageUrl } = req.body
-    if(gender === "Female") {
+    if(gender === "female") {
         let female = { 
           id: id++, 
           name, 

@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-// import Womens from './Womens'
-// import Mens from './Mens'
-import Athlete from './Athlete'
+import AthleteW from './AthleteW'
+import AthleteM from './AthleteM'
 
 class AthleteContain extends Component {
     constructor() {
         super();
 
         this.state = {
+            athletes: [],
             womens: [],
             mens: [],
             name: '', 
@@ -49,26 +49,24 @@ updateMale = athlete => {
         })
     })
 }
-    
-getSorted = gender => {
-    axios.get(`/api/athletes/${gender}`).then(res => {
+
+componentDidMount() {
+    axios.get('/api/athletes/female').then(res => {
         this.setState({
-            womens: res.data,
+            womens: res.data
+        })
+    }).catch(err => console.log('there was an error', err))
+    
+    axios.get('/api/athletes/male').then(res => {
+        this.setState({
             mens: res.data
         })
     }).catch(err => console.log('there was an error', err))
 }
 
-componentDidMount() {
-    axios.get('/api/athletes').then(res => {
-        this.setState({
-            athletes: res.data
-        })
-    }).catch(err => console.log('there was an error', err))
-}
 
 handleChange = e => {
-    let { name, value} = e.target
+    let { name, value } = e.target
     this.setState({
         [name]: value
     })
@@ -78,9 +76,9 @@ handleClick = () => {
     let { name, gender, event, bestMark, imageUrl } = this.state
     let athlete = { name, gender, event, bestMark, imageUrl }
     
-    if(gender === "Female") {
+    if(gender === "female") {
         this.createFemale(athlete)
-    } else if(gender === "Male") {
+    } else if(gender === "male") {
         this.createMale(athlete)
     }
 
@@ -91,15 +89,16 @@ handleClick = () => {
       <div>
           <div>
             <input type="text" name="name" placeholder="Full Name" onChange={this.handleChange}/>
-            <input type="text" name="gender" placeholder="Female or Male" onChange={this.handleChange}/>
+            <input type="text" name="gender" placeholder="female or male" onChange={this.handleChange}/>
             <input type="text" name="event" placeholder="Track Event" onChange={this.handleChange}/>
             <input type="text" name="bestMark" placeholder="Best Mark" onChange={this.handleChange}/>
             <input type="text" name="imageUrl" placeholder="Image URL" onChange={this.handleChange}/>
             <button onClick={this.handleClick}>Add Athlete</button>
           </div>
-          <div className="womens-list" >
+        
+          <div className="womens-list" style={{float: "left"}}>
             {this.state.womens.map(woman => {
-                return <Athlete 
+                return <AthleteW 
                             key={woman.id}
                             wName={woman.name}
                             wGender={woman.gender}
@@ -112,7 +111,7 @@ handleClick = () => {
 
           <div className="mens-list" style={{float: "right"}}>
             {this.state.mens.map(man => {
-                return <Athlete 
+                return <AthleteM 
                             key={man.id}
                             mName={man.name}
                             mGender={man.gender}
