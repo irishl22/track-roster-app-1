@@ -11,9 +11,9 @@ class Results extends Component {
     }
     
     handleChange = (e) => {
-        this.setState = {
+        this.setState ({
             input: e.target.value
-        }
+        })
     }
 
     handleClick = () => {
@@ -24,8 +24,8 @@ class Results extends Component {
     }
 
     render() {
-        let resultsList = this.state.results.map((item) => {
-            return <p>{item}</p>
+        let resultsList = this.state.results.map((item, index) => {
+            return <p key={index}>Result: {item}</p>
         })
 
     return (

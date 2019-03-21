@@ -21,47 +21,55 @@ class AthleteContain extends Component {
     }
 
 createFemale = woman => {
+    console.log(woman)
     axios.post(`/api/athletes/women`, woman).then(res => {
         this.setState({
             womens: res.data
         })
-    })
+    }).catch(err => console.log(err))
 }    
 createMale = man => {
     axios.post(`/api/athletes/men`, man).then(res => {
         this.setState({
             mens: res.data
         })
-    })
+    }).catch(err => console.log(err))
 }
 
-updateFemale = athlete => {
-    axios.put(`/api/athletes/women/${athlete.id}`).then(res => {
+updateFemale = woman => {
+    console.log("update", woman)
+    axios.put(`/api/athletes/women/${woman.id}`, woman).then(res => {
         this.setState({
             womens: res.data
         })
-    })
+    }).catch(err => console.log(err))
+    console.log("womens", this.state.womens)
+
+
 }
+
 updateMale = athlete => {
     axios.put(`/api/athletes/men/${athlete.id}`).then(res => {
         this.setState({
             mens: res.data
         })
-    })
+    }).catch(err => console.log(err))
 }
 
-componentDidMount() {
-    axios.get('/api/athletes/female').then(res => {
+deleteFemale = id => {
+    axios.delete(`/api/athletes/women/${id}`).then(res => {
         this.setState({
             womens: res.data
         })
-    }).catch(err => console.log('there was an error', err))
-    
-    axios.get('/api/athletes/male').then(res => {
+    }).catch(err => console.log(err))
+}
+
+deleteMale = id => {
+    axios.delete(`/api/athletes/men/${id}`).then(res => {
         this.setState({
             mens: res.data
         })
-    }).catch(err => console.log('there was an error', err))
+    }).catch(err => console.log(err))
 }
 
 
@@ -84,6 +92,20 @@ handleClick = () => {
 
 }
 
+componentDidMount() {
+    axios.get('/api/athletes/female').then(res => {
+        this.setState({
+            womens: res.data
+        })
+    }).catch(err => console.log('there was an error', err))
+    
+    axios.get('/api/athletes/male').then(res => {
+        this.setState({
+            mens: res.data
+        })
+    }).catch(err => console.log('there was an error', err))
+}
+
   render() {
     return (
       <div>
@@ -95,16 +117,14 @@ handleClick = () => {
             <input type="text" name="imageUrl" placeholder="Image URL" onChange={this.handleChange}/>
             <button onClick={this.handleClick}>Add Athlete</button>
           </div>
-        
+
           <div className="womens-list" style={{float: "left"}}>
-            {this.state.womens.map(woman => {
+            
+            {this.state.womens.map(athlete => {
                 return <AthleteW 
-                            key={woman.id}
-                            wName={woman.name}
-                            wGender={woman.gender}
-                            wEvent={woman.event}
-                            wBestMark={woman.bestMark}
-                            wImageUrl={woman.imageUrl}/>
+                            key={athlete.id} athlete={athlete}
+                            updateFemale={this.updateFemale}
+                            deleteFemale={this.deleteFemale}/>
 
             })}
           </div>
@@ -113,11 +133,14 @@ handleClick = () => {
             {this.state.mens.map(man => {
                 return <AthleteM 
                             key={man.id}
+                            id={man.id}
                             mName={man.name}
                             mGender={man.gender}
                             mEvent={man.event}
                             mBestMark={man.bestMark}
-                            mImageUrl={man.imageUrl}/>
+                            mImageUrl={man.imageUrl}
+                            updateMale={this.updateMale}
+                            deleteMale={this.deleteMale}/>
 
             })}
           </div>      

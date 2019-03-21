@@ -93,6 +93,7 @@ module.exports = {
   },
 
   updateFemale: (req, res) => {
+    console.log(req.body)
     let { name, gender, event, bestMark, imageUrl } = req.body
     let updatedFemale = {
         id: req.params.id, 

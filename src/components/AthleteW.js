@@ -6,26 +6,70 @@ class AthleteW extends Component {
         super(props);
 
         this.state = {
-            id: this.props.id,
-            gender: this.props.gender,
-            event: this.props.event,
-            bestMark: this.props.bestMark,
-            imageUrl: this.props.imageUrl,
+            id: this.props.athlete.id,
+            name: this.props.athlete.name,
+            gender: this.props.athlete.gender, 
+            event: this.props.athlete.event,
+            bestMark: this.props.athlete.bestMark,
+            imageUrl: this.props.athlete.imageUrl,
+            editing: false
         }
     }
 
+    handleChange = e => {
+      let { name, value } = e.target
+      console.log(this.state.name)
+      this.setState({
+          [name]: value
+      })
+  }
+
+    handleEditClick = () => {
+      this.setState({
+        editing: true
+      })
+    }
+
+    handleUpdateClick = () => {
+      console.log("id", this.props.athlete.id)
+      this.props.updateFemale(this.state)
+      this.setState({
+        editing: false
+      })
+    }
+
+    handleDeleteClick = () => {
+      this.props.deleteFemale(this.state.id)
+      this.setState({
+        editing: false
+      })
+    }
+
   render() {
-    return (
+    return this.state.editing ? (
       <div>
-          <img src={this.props.wImageUrl} alt="" width="100" />
-          <h6>Name: {this.props.wName}</h6>
-          <h6>Event: {this.props.wEvent}</h6>
-          <h6>Best Performance: {this.props.wBestMark}</h6>    
-          <Results />  
-      
-           
-           
-        </div>
+           <img src={this.props.athlete.imageUrl} alt="" width="100" />
+           <h6>Name: {this.props.athlete.name}</h6>
+           <h6>Event: {this.props.athlete.event}</h6>
+           <h6>Best Performance: {this.props.athlete.bestMark}</h6>
+
+           <input type="text" name="name" placeholder="Change Name" onChange={this.handleChange}/>
+            <input type="text" name="gender" placeholder="Change Gender" onChange={this.handleChange}/>
+            <input type="text" name="event" placeholder="Change Event" onChange={this.handleChange}/>
+            <input type="text" name="bestMark" placeholder="Change Best Mark" onChange={this.handleChange}/>
+            <input type="text" name="imageUrl" placeholder="Change Image" onChange={this.handleChange}/>
+            <button onClick={this.handleUpdateClick}>Update Athlete</button>
+            <button onClick={this.handleDeleteClick}>Delete Athlete</button>
+      </div>
+        ) : (
+      <div>
+          <img src={this.props.athlete.imageUrl} alt="" width="100" />
+           <h6>Name: {this.props.athlete.name}</h6>
+           <h6>Event: {this.props.athlete.event}</h6>
+           <h6>Best Performance: {this.props.athlete.bestMark}</h6>
+          <button onClick={this.handleEditClick}>Edit Athlete</button>    
+          <Results/>  
+      </div>
     )
   }
 }
