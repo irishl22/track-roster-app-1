@@ -18,7 +18,6 @@ class AthleteW extends Component {
 
     handleChange = e => {
       let { name, value } = e.target
-      console.log(this.state.name)
       this.setState({
           [name]: value
       })
@@ -31,7 +30,6 @@ class AthleteW extends Component {
     }
 
     handleUpdateClick = () => {
-      console.log("id", this.props.athlete.id)
       this.props.updateFemale(this.state)
       this.setState({
         editing: false
