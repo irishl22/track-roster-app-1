@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import '../App.css'
 
 import AthleteW from './AthleteW'
 import AthleteM from './AthleteM'
@@ -124,35 +125,46 @@ componentDidMount() {
   render() {
     return (
       <div>
-          <div>
-            <input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange}/>
-            <input type="text" name="gender" value={this.state.gender}  placeholder="female or male" onChange={this.handleChange}/>
-            <input type="text" name="event" value={this.state.event} placeholder="Track Event" onChange={this.handleChange}/>
-            <input type="text" name="bestMark" value={this.state.bestMark}  placeholder="Best Mark" onChange={this.handleChange}/>
-            <input type="text" name="imageUrl" value={this.state.imageUrl}  placeholder="Image URL" onChange={this.handleChange}/>
-            <button onClick={this.handleClick}>Add Athlete</button>
+          <div className="add-athlete">
+          <h1>Add your athlete:</h1>
+            <div className="left-inputs">
+                <input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange}/>
+                <input type="text" name="gender" value={this.state.gender}  placeholder="female or male" onChange={this.handleChange}/>
+            </div>
+
+            <div className="right-inputs">
+                <input type="text" name="event" value={this.state.event} placeholder="Track Event" onChange={this.handleChange}/>
+                <input type="text" name="bestMark" value={this.state.bestMark}  placeholder="Best Mark" onChange={this.handleChange}/>
+            </div>
+
+            <div className="bottom-inputs">
+                <input type="text" name="imageUrl" value={this.state.imageUrl}  placeholder="Image URL" onChange={this.handleChange}/>
+                <button className="myButton" onClick={this.handleClick}>Add Athlete</button>
+            </div>
+          </div>
+          <div className="lists">
+            <div className="womens-list">
+                
+                {this.state.womens.map(athlete => {
+                    return <AthleteW 
+                                key={athlete.id} athlete={athlete}
+                                updateFemale={this.updateFemale}
+                                deleteFemale={this.deleteFemale}/>
+
+                })}
+            </div>
+
+            <div className="mens-list">
+                {this.state.mens.map(athlete => {
+                    return <AthleteM 
+                                key={athlete.id} athlete={athlete}
+                                updateMale={this.updateMale}
+                                deleteMale={this.deleteMale}/>
+
+                })}
+            </div>      
           </div>
 
-          <div className="womens-list" style={{float: "left"}}>
-            
-            {this.state.womens.map(athlete => {
-                return <AthleteW 
-                            key={athlete.id} athlete={athlete}
-                            updateFemale={this.updateFemale}
-                            deleteFemale={this.deleteFemale}/>
-
-            })}
-          </div>
-
-          <div className="mens-list" style={{float: "right"}}>
-            {this.state.mens.map(athlete => {
-                return <AthleteM 
-                            key={athlete.id} athlete={athlete}
-                            updateMale={this.updateMale}
-                            deleteMale={this.deleteMale}/>
-
-            })}
-          </div>      
       </div>
     )
   }
