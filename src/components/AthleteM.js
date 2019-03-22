@@ -66,7 +66,10 @@ class AthleteM extends Component {
             <h6>Best Performance: {this.props.athlete.bestMark}</h6>
             <button onClick={this.handleEditClick}>Edit Athlete</button> 
         </div>   
-        <Results />  
+        <Results id={this.props.athlete.id} name={this.props.athlete.name} 
+                    gender={this.props.athlete.gender} bestMark={this.props.athlete.bestMark}
+                    imageUrl={this.props.athlete.imageUrl} event={this.props.athlete.event}
+                    updateMale={this.props.updateMale}/>  
       </div>
     )
   }

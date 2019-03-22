@@ -1,22 +1,39 @@
 import React, { Component } from 'react'
 
 class Results extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             input: '',
-            results: []
+            results: [],
+            id: this.props.id,
+            name: this.props.name,
+            gender: this.props.gender,
+            event: this.props.event,
+            bestMark: this.props.bestMark,
+            imageUrl: this.props.imageUrl
         }
 
     }
     
     handleChange = (e) => {
         this.setState ({
-            input: e.target.value
+            input: e.target.value,
+            bestMark: e.target.value
         })
     }
 
     handleClick = () => {
+        let {input, name, gender} = this.state
+        console.log(this.state.id)
+
+        if(Number(input) < Number(this.props.bestMark) && Number(input) && gender === "female") {
+            this.props.updateFemale(this.state)
+            alert(`${name} has a new best performance mark!`)
+        } else if(Number(input) < Number(this.props.bestMark) && Number(input) && gender === "male") {
+            this.props.updateMale(this.state)
+            alert(`${name} has a new best performance mark!`)
+        }
         this.setState({
             results: [...this.state.results, this.state.input],
             input: ''

@@ -4,6 +4,9 @@ import '../App.css'
 
 import AthleteW from './AthleteW'
 import AthleteM from './AthleteM'
+import AddMeet from './AddMeet'
+
+
 
 class AthleteContain extends Component {
     constructor() {
@@ -142,6 +145,9 @@ componentDidMount() {
                 <button className="myButton" onClick={this.handleClick}>Add Athlete</button>
             </div>
           </div>
+          <div className="add-meet">
+            <AddMeet/>
+          </div>
           <div className="roster-names">
             <h2>Women's Roster</h2>
             <h2>Men's Roster</h2>
@@ -168,7 +174,6 @@ componentDidMount() {
                 })}
             </div>      
           </div>
-
       </div>
     )
   }
