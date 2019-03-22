@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import AthleteContain from './components/AthleteContain'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <body>
           <AthleteContain />
         </body>
+        <Footer />
       </div>
     );
   }

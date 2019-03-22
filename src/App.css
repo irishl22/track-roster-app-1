@@ -16,6 +16,19 @@ body {
     align-items: center;
     padding: 0px 30px;
     color: rgb(95, 93, 93);
+    background: #fff;
+}
+
+.footer {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    color: #fff;
+    background: rgb(95, 93, 93);
+    margin-top: 60px;
 }
 
 .title-image {
@@ -41,7 +54,7 @@ body {
 }
 
 input {
-    border: 2px solid rgba(158, 155, 155, 0.664); 
+    border: 2px solid rgba(197, 195, 195, 0.664); 
     border-left-color: rgb(223, 223, 5, .9);
     border-radius: 5px;
     -webkit-box-shadow: 
@@ -101,10 +114,16 @@ button {
     text-transform: capitalize;
 }
 
+.roster-names {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 110px 0px 110px;
+}
+
 .lists {
     display: flex;
     justify-content: space-around;
-    margin-top: 30px;
+    margin: 10px 40px;
    
 }
 
@@ -118,16 +137,17 @@ button {
     -webkit-box-shadow:3px 3px 2px 2px rgba(58, 57, 57, 0.6) ;
     -moz-box-shadow:3px 3px 2px 2px rgba(58, 57, 57, 0.6) ;
     box-shadow:3px 3px 3px 3px rgba(58, 57, 57, 0.6) ;
-    padding: 15px 50px;
+    padding: 15px 30px;
     border-radius: 6px;
     width: 45%;
+    position: relative;
 
 }
 .mens-list {
     -webkit-box-shadow:3px 3px 2px 2px rgba(58, 57, 57, 0.6) ;
     -moz-box-shadow:3px 3px 2px 2px rgba(58, 57, 57, 0.6) ;
     box-shadow:3px 3px 3px 3px rgba(58, 57, 57, 0.6) ;
-    padding: 15px 50px;
+    padding: 15px 30px;
     border-radius: 6px;
     width: 45%;
 }
@@ -139,7 +159,7 @@ button {
     border: 2px solid rgba(58, 57, 57, 0.6);
     border-radius: 4px;
     float: left;
-    margin-left: -30px;
+
     margin-right: 10px;
 }
 
@@ -169,8 +189,35 @@ button {
     padding: 2px;
     font-size: 14px;
     font-weight: bold;
-    background: #000;
-    width: 90px;
+    background: rgba(8, 15, 92, 0.8);
+    width: 110px;
     color: #fff;
     border-radius: 4px;
+}
+
+.athlete-edit {
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.athlete-edit-inputs {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   position: absolute;
+   right: 45px;
+   top: 10px;
+   padding: 5px 10px;
+   border: 2px dashed rgba(58, 57, 57, 0.6);
+}
+
+.edit-delete-buttons {
+    width: 120px;
+    margin-bottom: 15px;
+    margin-right: 3px;
+    
+}
+
+.edit-headers {
+    display: inline;
 }

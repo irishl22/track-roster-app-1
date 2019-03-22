@@ -142,6 +142,10 @@ componentDidMount() {
                 <button className="myButton" onClick={this.handleClick}>Add Athlete</button>
             </div>
           </div>
+          <div className="roster-names">
+            <h2>Women's Roster</h2>
+            <h2>Men's Roster</h2>
+          </div>
           <div className="lists">
             <div className="womens-list">
                 

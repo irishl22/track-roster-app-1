@@ -32,7 +32,7 @@ let mens = [
         name: "Luis Carson",
         gender: "male",
         event: "High Jump",
-        bestMark: "6",
+        bestMark: "6\'9\"",
         imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
 
     }
