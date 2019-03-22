@@ -48,8 +48,8 @@ updateFemale = woman => {
 
 }
 
-updateMale = athlete => {
-    axios.put(`/api/athletes/men/${athlete.id}`).then(res => {
+updateMale = man => {
+    axios.put(`/api/athletes/men/${man.id}`, man).then(res => {
         this.setState({
             mens: res.data
         })
@@ -86,10 +86,25 @@ handleClick = () => {
     
     if(gender === "female") {
         this.createFemale(athlete)
+        this.setState({
+            name: '',
+            gender: '', 
+            event: '',
+            bestMark: '',
+            imageUrl: ''
+        })
     } else if(gender === "male") {
         this.createMale(athlete)
+        this.setState({
+            name: '',
+            gender: '', 
+            event: '',
+            bestMark: '',
+            imageUrl: ''
+        })
     }
 
+    
 }
 
 componentDidMount() {
@@ -110,11 +125,11 @@ componentDidMount() {
     return (
       <div>
           <div>
-            <input type="text" name="name" placeholder="Full Name" onChange={this.handleChange}/>
-            <input type="text" name="gender" placeholder="female or male" onChange={this.handleChange}/>
-            <input type="text" name="event" placeholder="Track Event" onChange={this.handleChange}/>
-            <input type="text" name="bestMark" placeholder="Best Mark" onChange={this.handleChange}/>
-            <input type="text" name="imageUrl" placeholder="Image URL" onChange={this.handleChange}/>
+            <input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange}/>
+            <input type="text" name="gender" value={this.state.gender}  placeholder="female or male" onChange={this.handleChange}/>
+            <input type="text" name="event" value={this.state.event} placeholder="Track Event" onChange={this.handleChange}/>
+            <input type="text" name="bestMark" value={this.state.bestMark}  placeholder="Best Mark" onChange={this.handleChange}/>
+            <input type="text" name="imageUrl" value={this.state.imageUrl}  placeholder="Image URL" onChange={this.handleChange}/>
             <button onClick={this.handleClick}>Add Athlete</button>
           </div>
 
@@ -130,15 +145,9 @@ componentDidMount() {
           </div>
 
           <div className="mens-list" style={{float: "right"}}>
-            {this.state.mens.map(man => {
+            {this.state.mens.map(athlete => {
                 return <AthleteM 
-                            key={man.id}
-                            id={man.id}
-                            mName={man.name}
-                            mGender={man.gender}
-                            mEvent={man.event}
-                            mBestMark={man.bestMark}
-                            mImageUrl={man.imageUrl}
+                            key={athlete.id} athlete={athlete}
                             updateMale={this.updateMale}
                             deleteMale={this.deleteMale}/>
 

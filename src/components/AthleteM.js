@@ -7,11 +7,12 @@ class AthleteM extends Component {
         super(props);
 
         this.state = {
-            id: this.props.id,
-            gender: this.props.gender,
-            event: this.props.event,
-            bestMark: this.props.bestMark,
-            imageUrl: this.props.imageUrl,
+            id: this.props.athlete.id,
+            name: this.props.athlete.name,
+            gender: this.props.athlete.gender, 
+            event: this.props.athlete.event,
+            bestMark: this.props.athlete.bestMark,
+            imageUrl: this.props.athlete.imageUrl,
             editing: false
         }
     }
@@ -47,10 +48,10 @@ class AthleteM extends Component {
   render() {
     return this.state.editing ? (
       <div>
-            <img src={this.props.mImageUrl} alt="" width="100" />
-            <h6>Name: {this.props.mName}</h6>
-            <h6>Event: {this.props.mEvent}</h6>
-            <h6>Best Performance: {this.props.mBestMark}</h6>
+            <img src={this.props.athlete.imageUrl} alt="" width="100" />
+           <h6>Name: {this.props.athlete.name}</h6>
+           <h6>Event: {this.props.athlete.event}</h6>
+           <h6>Best Performance: {this.props.athlete.bestMark}</h6>
            <input type="text" name="name" placeholder="Change Name" onChange={this.handleChange}/>
             <input type="text" name="gender" placeholder="Change Gender" onChange={this.handleChange}/>
             <input type="text" name="event" placeholder="Change Event" onChange={this.handleChange}/>
@@ -61,10 +62,10 @@ class AthleteM extends Component {
       </div>
         ) : (
       <div>
-          <img src={this.props.mImageUrl} alt="" width="100" />
-          <h6>Name: {this.props.mName}</h6>
-          <h6>Event: {this.props.mEvent}</h6>
-          <h6>Best Performance: {this.props.mBestMark}</h6>
+          <img src={this.props.athlete.imageUrl} alt="" width="100" />
+           <h6>Name: {this.props.athlete.name}</h6>
+           <h6>Event: {this.props.athlete.event}</h6>
+           <h6>Best Performance: {this.props.athlete.bestMark}</h6>
           <button onClick={this.handleEditClick}>Edit Athlete</button>    
           <Results/>  
       </div>
