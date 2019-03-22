@@ -45,8 +45,8 @@ class AthleteW extends Component {
 
   render() {
     return this.state.editing ? (
-      <div>
-           <img src={this.props.athlete.imageUrl} alt="" width="100" />
+      <div className="athlete-info">
+           <img className="profile-img" src={this.props.athlete.imageUrl} alt="" width="100" />
            <h6>Name: {this.props.athlete.name}</h6>
            <h6>Event: {this.props.athlete.event}</h6>
            <h6>Best Performance: {this.props.athlete.bestMark}</h6>
@@ -60,13 +60,15 @@ class AthleteW extends Component {
             <button onClick={this.handleDeleteClick}>Delete Athlete</button>
       </div>
         ) : (
-      <div>
-          <img src={this.props.athlete.imageUrl} alt="" width="100" />
-           <h6>Name: {this.props.athlete.name}</h6>
-           <h6>Event: {this.props.athlete.event}</h6>
-           <h6>Best Performance: {this.props.athlete.bestMark}</h6>
-          <button onClick={this.handleEditClick}>Edit Athlete</button>    
-          <Results/>  
+      <div className="athlete-info">
+          <div className="info-block">
+            <img className="profile-img" src={this.props.athlete.imageUrl} alt="" width="100" />
+            <h6>Name: {this.props.athlete.name}</h6>
+            <h6>Event: {this.props.athlete.event}</h6>
+            <h6>Best Performance: {this.props.athlete.bestMark}</h6>
+            <button onClick={this.handleEditClick}>Edit Athlete</button>    
+          </div>
+          <Results  className="results"/>  
       </div>
     )
   }

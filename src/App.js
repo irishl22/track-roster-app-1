@@ -10,7 +10,9 @@ class App extends Component {
         <header>
         <Header />  
         </header>
-        <AthleteContain />
+        <body>
+          <AthleteContain />
+        </body>
       </div>
     );
   }

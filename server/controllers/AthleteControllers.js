@@ -6,7 +6,7 @@ let id = 1
       gender: "female",
       event: "400m Hurdles",
       bestMark: "61.40",
-      imageUrl: ""
+      imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
     },
     {
       id: id++,
@@ -14,7 +14,7 @@ let id = 1
       gender: "female",
       event: "400m Hurdles",
       bestMark: "59.01",
-      imageUrl: ""
+      imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
     }
   ]
 let mens = [
@@ -24,7 +24,7 @@ let mens = [
         gender: "male",
         event: "110m Hurdles",
         bestMark: "14.01",
-        imageUrl: ""
+        imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
 
     },
     {
@@ -33,7 +33,7 @@ let mens = [
         gender: "male",
         event: "High Jump",
         bestMark: "6",
-        imageUrl: ""
+        imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
 
     }
 ]

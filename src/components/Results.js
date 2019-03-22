@@ -25,15 +25,17 @@ class Results extends Component {
 
     render() {
         let resultsList = this.state.results.map((item, index) => {
-            return <p key={index}>Result: {item}</p>
+            return <p className="results-text" key={index}>Result: {item}</p>
         })
 
     return (
-      <div>
-          <input type="text" placeholder="Enter Results" onChange={this.handleChange}/>
-          <button onClick={this.handleClick}>Add</button>  
-          {resultsList}
-      </div>
+    <div>
+        <div className="results">
+            <input value={this.state.input} type="text" placeholder="Enter Results" onChange={this.handleChange}/>
+            <button className="results-button" onClick={this.handleClick}>Add</button>  
+        </div>
+            {resultsList}
+    </div>
     )
   }
 }
