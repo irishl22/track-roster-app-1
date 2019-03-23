@@ -41,7 +41,7 @@ body {
 .add-athlete {
     width: 100%;
     height: 50vh;
-    background-image: linear-gradient( rgba(8, 15, 92, 0.8), rgba(8, 15, 92, 0.98)), url('./images/track.jpg');
+    background-image: linear-gradient( rgba(27, 33, 85, 0.3), rgba(10, 15, 63)), url('./images/track.jpg');
     background-repeat: no-repeat;
     background-size: contain;
     background-attachment: fixed;
@@ -49,8 +49,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center; 
+}
+
+.trident-logo {
+    width: 43px;
+    margin-top: 17px;
 }
 
 input {
@@ -68,10 +72,8 @@ input {
             0 0 16px rgba(0,0,0,0.1); 
     padding: 5px;
     background: rgba(255,255,255,0.6);
-    margin: 5px;
-    
+    margin: 5px; 
 }
-
 input::placeholder {
     color: rgba(58, 57, 57, 0.774);
 }
@@ -122,8 +124,9 @@ button {
 
 .lists {
     display: flex;
-    justify-content: space-between;
-    margin: 0px 50px;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0px;
 }
 
 .lists h6 {
@@ -140,7 +143,8 @@ button {
     border-radius: 6px;
     width: 45%;
     position: relative;
-
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .mens-list {
     -webkit-box-shadow:3px 3px 2px 2px rgba(58, 57, 57, 0.6) ;
@@ -152,8 +156,8 @@ button {
 }
 
 .profile-img {
-    width: 100px;
-    height: 105px;
+    width: 90px;
+    height: 110px;
     padding: 2px;
     border: 2px solid rgba(58, 57, 57, 0.6);
     border-radius: 4px;
@@ -213,8 +217,7 @@ button {
 .edit-delete-buttons {
     width: 120px;
     margin-bottom: 15px;
-    margin-right: 3px;
-    
+    margin-right: 3px;  
 }
 
 .edit-headers {
@@ -233,3 +236,4 @@ button {
     border-radius: 4px;
     box-shadow: 3px 3px 2px rgba(58, 57, 57, 0.6);
 }
+

@@ -20,12 +20,13 @@ class AthleteContain extends Component {
             gender: '', 
             event: '',
             bestMark: '',
-            imageUrl: '' 
+            imageUrl: '' ,
+            checkedF: false,
+            checkedM: false
         }
     }
 
 createFemale = woman => {
-    console.log(woman)
     axios.post(`/api/athletes/women`, woman).then(res => {
         this.setState({
             womens: res.data
@@ -41,15 +42,11 @@ createMale = man => {
 }
 
 updateFemale = woman => {
-    console.log("update", woman)
     axios.put(`/api/athletes/women/${woman.id}`, woman).then(res => {
         this.setState({
             womens: res.data
         })
     }).catch(err => console.log(err))
-    console.log("womens", this.state.womens)
-
-
 }
 
 updateMale = man => {
@@ -76,7 +73,7 @@ deleteMale = id => {
     }).catch(err => console.log(err))
 }
 
-
+// HANDLE METHODS FOR ADD ATHLETE
 handleChange = e => {
     let { name, value } = e.target
     this.setState({
@@ -84,31 +81,44 @@ handleChange = e => {
     })
 }
 
+handleCheckBoxF = (e) => {
+    this.setState({
+        checkedF: e.target.checked,
+        gender: "female"
+    })
+}
+handleCheckBoxM = (e) => {
+    this.setState({
+        checkedM: e.target.checked,
+        gender: "male"
+    })
+}
+
 handleClick = () => {
-    let { name, gender, event, bestMark, imageUrl } = this.state
+    let { name, gender, event, bestMark, imageUrl, checkedF, checkedM } = this.state
     let athlete = { name, gender, event, bestMark, imageUrl }
-    
-    if(gender === "female") {
+    console.log(checkedF)
+    if(checkedF === true) {
         this.createFemale(athlete)
         this.setState({
             name: '',
             gender: '', 
             event: '',
             bestMark: '',
-            imageUrl: ''
+            imageUrl: '',
+            checkedF: false
         })
-    } else if(gender === "male") {
+    } else if(checkedM === true) {
         this.createMale(athlete)
         this.setState({
             name: '',
             gender: '', 
             event: '',
             bestMark: '',
-            imageUrl: ''
+            imageUrl: '',
+            checkedM: false
         })
-    }
-
-    
+    }  
 }
 
 componentDidMount() {
@@ -131,8 +141,16 @@ componentDidMount() {
           <div className="add-athlete">
           <h1>Add your athlete:</h1>
             <div className="left-inputs">
-                <input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange}/>
-                <input type="text" name="gender" value={this.state.gender}  placeholder="female or male" onChange={this.handleChange}/>
+                 <input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange}/>
+                 
+                <div className="check-box">
+                    <input  type="checkbox" name="male" value={this.state.checkedM} onClick={this.handleCheckBoxM}/>
+                    <label htmlFor="coding">Male</label>
+                   
+                    <input type="checkbox" id="" name="female" value={this.state.checkedF} onClick={this.handleCheckBoxF}/>
+                    <label htmlFor="music">Female</label>
+                </div>
+                {/* <input type="text" name="gender" value={this.state.gender}  placeholder="female or male" onChange={this.handleChange}/> */}
             </div>
 
             <div className="right-inputs">
@@ -143,15 +161,19 @@ componentDidMount() {
             <div className="bottom-inputs">
                 <input type="text" name="imageUrl" value={this.state.imageUrl}  placeholder="Image URL" onChange={this.handleChange}/>
                 <button className="myButton" onClick={this.handleClick}>Add Athlete</button>
+                <img src="http://recreation.ucsd.edu/wp-content/uploads/2015/09/Athletics-Yellow-Trident-300x297.png" className="trident-logo" alt=""/>
             </div>
           </div>
+
           <div className="add-meet">
-            <AddMeet/>
+            <AddMeet />
           </div>
+
           <div className="roster-names">
             <h2>Women's Roster</h2>
             <h2>Men's Roster</h2>
           </div>
+          
           <div className="lists">
             <div className="womens-list">
                 

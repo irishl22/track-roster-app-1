@@ -30,10 +30,10 @@ class AthleteM extends Component {
       })
     }
 
-    handleUpdateClick = () => {
+    handleUpdateClick = () => { 
       this.props.updateMale(this.state)
       this.setState({
-        editing: false
+        editing: false,
       })
     }
 

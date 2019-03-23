@@ -6,7 +6,7 @@ let id = 1
       gender: "female",
       event: "400m Hurdles",
       bestMark: "61.40",
-      imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
+      imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/UQ/UQKRYQVUEUHZFYS.20140205230630.jpg"
     },
     {
       id: id++,
@@ -14,7 +14,7 @@ let id = 1
       gender: "female",
       event: "400m Hurdles",
       bestMark: "59.01",
-      imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
+      imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/QS/QSYBXMLLIDUIPUS.20190218222327.jpg"
     }
   ]
 let mens = [
@@ -24,17 +24,16 @@ let mens = [
         gender: "male",
         event: "110m Hurdles",
         bestMark: "14.01",
-        imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
+        imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/MU/MUPRWPAJKWMJFPI.20180202231414.jpg"
 
     },
     {
         id: id++,
-        name: "Luis Carson",
+        name: "Josef Polk",
         gender: "male",
-        event: "High Jump",
-        bestMark: "6\'9\"",
-        imageUrl: "https://www.maxim.com/.image/t_share/MTM1MTQyNDYxNTcwODg2Mjc1/placeholder-title.jpg"
-
+        event: "Long Jump",
+        bestMark: "22\'11\"",
+        imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/CT/CTRVDNHRLHIMFQQ.20180202231414.jpg"
     }
 ]
 

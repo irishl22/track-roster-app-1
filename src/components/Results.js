@@ -25,7 +25,6 @@ class Results extends Component {
 
     handleClick = () => {
         let {input, name, gender} = this.state
-        console.log(this.state.id)
 
         if(Number(input) < Number(this.props.bestMark) && Number(input) && gender === "female") {
             this.props.updateFemale(this.state)

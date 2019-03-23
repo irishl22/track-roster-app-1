@@ -8,11 +8,7 @@ class Results extends Component {
             meets: [],
             title: '',
             date: '',
-            location: ''
-            // meets: [],
-            // dates: [],
-            // locations: []
-            
+            location: '',
         }
 
     }
@@ -36,8 +32,12 @@ class Results extends Component {
 
     render() {
         let meetList = this.state.meets.map((item, index) => {
-            return <h2 className="added-meet" key={index}>Meet: {item[0]} on {item[1]} at {item[2]}</h2>
+            return <h2 className="added-meet" key={index}> 
+                     {item[0]} <span style={{color: 'yellow'}}>on  </span>
+                     {item[1]} <span style={{color: 'yellow'}}>in  </span>
+                     {item[2]}</h2>
         })
+      
 
     return (
     <div>
