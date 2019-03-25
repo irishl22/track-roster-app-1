@@ -33,7 +33,7 @@ class AthleteM extends Component {
     handleUpdateClick = () => { 
       this.props.updateMale(this.state)
       this.setState({
-        editing: false,
+        editing: false
       })
     }
 

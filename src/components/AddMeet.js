@@ -24,7 +24,6 @@ class Results extends Component {
 
     handleClick = () => {
         let {title, date, location, womenCount, menCount} = this.state
-        console.log(menCount)
         this.setState({
             meets: [...this.state.meets, [title, date, location]],
             title: '',
@@ -38,11 +37,11 @@ class Results extends Component {
     render() {
         let meetList = this.state.meets.map((item, index) => {
             return <h2 className="added-meet" key={index}> 
-                     {item[0]} <span style={{color: '#FDBC44'}}>on  </span>
-                     {item[1]} <span style={{color: '#FDBC44'}}>in  </span>
+                     {item[0]} <span style={{color: 'rgb(253, 241, 68)'}}>on  </span>
+                     {item[1]} <span style={{color: 'rgb(253, 241, 68)'}}>in  </span>
                      {item[2]}
-                     <span style={{color: '#FDBC44', float: 'right', marginRight:"0.6rem", display:"inline-block"}}> Men: {this.props.menCount}</span>
-                     <span style={{color: '#FDBC44', float: 'right', marginRight:"0.6rem"}}> Women: {this.props.womenCount} </span>
+                     <span style={{color: 'rgb(253, 241, 68)', float: 'right', marginRight:"0.6rem", display:"inline-block"}}> Men: {this.props.menCount}</span>
+                     <span style={{color: 'rgb(253, 241, 68)', float: 'right', marginRight:"0.6rem"}}> Women: {this.props.womenCount} </span>
                      </h2>
         })  
         return (

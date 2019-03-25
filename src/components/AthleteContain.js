@@ -23,8 +23,8 @@ class AthleteContain extends Component {
             imageUrl: '' ,
             checkedF: false,
             checkedM: false,
-            womenCount: 4,
-            menCount: 3
+            womenCount: 3,
+            menCount: 2
         }
     }
 
@@ -60,17 +60,21 @@ updateMale = man => {
 }
 
 deleteFemale = id => {
+    let {womenCount} = this.state
     axios.delete(`/api/athletes/women/${id}`).then(res => {
         this.setState({
-            womens: res.data
+            womens: res.data,
+            womenCount: womenCount - 1
         })
     }).catch(err => console.log(err))
 }
 
 deleteMale = id => {
+    let {menCount} = this.state
     axios.delete(`/api/athletes/men/${id}`).then(res => {
         this.setState({
-            mens: res.data
+            mens: res.data,
+            menCount: menCount - 1
         })
     }).catch(err => console.log(err))
 }
@@ -98,9 +102,6 @@ handleCheckBoxM = (e) => {
 
 handleClick = () => {
     let { name, gender, event, bestMark, imageUrl, checkedF, checkedM, womenCount, menCount } = this.state
-
-    console.log("w", womenCount)
-    console.log("m", menCount)
     let athlete = { name, gender, event, bestMark, imageUrl }
     if(checkedF === true) {
         this.createFemale(athlete)
