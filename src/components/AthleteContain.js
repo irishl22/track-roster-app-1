@@ -22,7 +22,9 @@ class AthleteContain extends Component {
             bestMark: '',
             imageUrl: '' ,
             checkedF: false,
-            checkedM: false
+            checkedM: false,
+            womenCount: 4,
+            menCount: 3
         }
     }
 
@@ -95,28 +97,32 @@ handleCheckBoxM = (e) => {
 }
 
 handleClick = () => {
-    let { name, gender, event, bestMark, imageUrl, checkedF, checkedM } = this.state
+    let { name, gender, event, bestMark, imageUrl, checkedF, checkedM, womenCount, menCount } = this.state
+
+    console.log("w", womenCount)
+    console.log("m", menCount)
     let athlete = { name, gender, event, bestMark, imageUrl }
-    console.log(checkedF)
     if(checkedF === true) {
         this.createFemale(athlete)
         this.setState({
             name: '',
-            gender: '', 
+            gender: 'female', 
             event: '',
             bestMark: '',
             imageUrl: '',
-            checkedF: false
+            checkedF: true,
+            womenCount: womenCount + 1
         })
     } else if(checkedM === true) {
         this.createMale(athlete)
         this.setState({
             name: '',
-            gender: '', 
+            gender: 'male', 
             event: '',
             bestMark: '',
             imageUrl: '',
-            checkedM: false
+            checkedM: true,
+            menCount: menCount + 1
         })
     }  
 }
@@ -135,7 +141,7 @@ componentDidMount() {
     }).catch(err => console.log('there was an error', err))
 }
 
-  render() {
+render() { 
     return (
       <div>
           <div className="add-athlete">
@@ -143,14 +149,13 @@ componentDidMount() {
             <div className="left-inputs">
                  <input type="text" name="name" value={this.state.name} placeholder="Full Name" onChange={this.handleChange}/>
                  
-                <div className="check-box">
-                    <input  type="checkbox" name="male" value={this.state.checkedM} onClick={this.handleCheckBoxM}/>
-                    <label htmlFor="coding">Male</label>
-                   
-                    <input type="checkbox" id="" name="female" value={this.state.checkedF} onClick={this.handleCheckBoxF}/>
-                    <label htmlFor="music">Female</label>
-                </div>
-                {/* <input type="text" name="gender" value={this.state.gender}  placeholder="female or male" onChange={this.handleChange}/> */}
+                <label className="check-container">Female
+                    <input type="radio" name="gender" onClick={this.handleCheckBoxF} value={this.state.gender}/>
+                </label>
+                <label className="check-container">Male
+                <input type="radio" name="gender" onClick={this.handleCheckBoxM} value={this.state.gender}/>
+                </label>
+  
             </div>
 
             <div className="right-inputs">
@@ -166,7 +171,7 @@ componentDidMount() {
           </div>
 
           <div className="add-meet">
-            <AddMeet />
+            <AddMeet womenCount={this.state.womenCount} menCount={this.state.menCount}/>
           </div>
 
           <div className="roster-names">
@@ -176,7 +181,6 @@ componentDidMount() {
           
           <div className="lists">
             <div className="womens-list">
-                
                 {this.state.womens.map(athlete => {
                     return <AthleteW 
                                 key={athlete.id} athlete={athlete}

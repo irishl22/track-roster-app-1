@@ -4,8 +4,11 @@
 
 body {
     font-family: 'Pontano Sans', sans-serif;
-    height: 100vh;
-    
+    background-image: url('http://www.clixmarketing.com/blog/wp-content/uploads/2017/12/sport-treadmill-tor-route-163444.jpeg');
+    background-color: #E2E2E2;
+    background-size: 2000px 900px;
+    background-position: bottom;
+    background-repeat: no-repeat;
 }
 
 .main-header {
@@ -21,13 +24,13 @@ body {
 
 .footer {
     width: 100%;
-    height: 8vh;
+    height: 12vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px 30px;
     color: #fff;
-    background: rgb(95, 93, 93);
+    background: rgb(83, 82, 82);
     margin-top: 60px;
 }
 
@@ -40,11 +43,11 @@ body {
 
 .add-athlete {
     width: 100%;
-    height: 50vh;
-    background-image: linear-gradient( rgba(27, 33, 85, 0.3), rgba(10, 15, 63)), url('./images/track.jpg');
+    height: 52vh;
+    background-image: linear-gradient( rgba(20, 36, 66, 0.6), rgba(20, 36, 66, .8)), url('./images/track.jpg');
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: contain;
-    background-attachment: fixed;
     display: relative;
     display: flex;
     flex-direction: column;
@@ -76,6 +79,11 @@ input {
 }
 input::placeholder {
     color: rgba(58, 57, 57, 0.774);
+}
+
+.check-container {
+    color: #fff;
+    margin: 0px 6px;
 }
 
 .bottom-inputs {
@@ -127,6 +135,7 @@ button {
     justify-content: space-around;
     width: 100%;
     margin: 0px;
+    
 }
 
 .lists h6 {
@@ -142,10 +151,10 @@ button {
     padding: 15px 30px;
     border-radius: 6px;
     width: 45%;
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: #fff;
+   
 }
+
 .mens-list {
     -webkit-box-shadow:3px 3px 2px 2px rgba(58, 57, 57, 0.6) ;
     -moz-box-shadow:3px 3px 2px 2px rgba(58, 57, 57, 0.6) ;
@@ -153,6 +162,7 @@ button {
     padding: 15px 30px;
     border-radius: 6px;
     width: 45%;
+    background: #fff;
 }
 
 .profile-img {
@@ -225,7 +235,7 @@ button {
 }
 
 .add-meet {
-    margin: 30px 50px;
+    margin: 40px 50px;
 }
 
 .added-meet {

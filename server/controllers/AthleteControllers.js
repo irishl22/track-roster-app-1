@@ -6,15 +6,23 @@ let id = 1
       gender: "female",
       event: "400m Hurdles",
       bestMark: "61.40",
-      imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/UQ/UQKRYQVUEUHZFYS.20140205230630.jpg"
+      imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/UQ/UQKRYQVUEUHZFYS.20140205230630.jpg",
     },
     {
       id: id++,
       name: "Claudia Cox",
       gender: "female",
       event: "400m Hurdles",
-      bestMark: "59.01",
+      bestMark: "59.81",
       imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/QS/QSYBXMLLIDUIPUS.20190218222327.jpg"
+    },
+    {
+      id: id++,
+      name: "Nina Acebo",
+      gender: "female",
+      event: "Long Jump",
+      bestMark: "18\'11\"",
+      imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/OF/OFOUYYMPKMDNQMO.20190218204552.jpg"
     }
   ]
 let mens = [
@@ -31,8 +39,8 @@ let mens = [
         id: id++,
         name: "Josef Polk",
         gender: "male",
-        event: "Long Jump",
-        bestMark: "22\'11\"",
+        event: "400m",
+        bestMark: "47.98",
         imageUrl: "http://image.cdnllnwnl.xosnetwork.com/pics33/400/CT/CTRVDNHRLHIMFQQ.20180202231414.jpg"
     }
 ]
