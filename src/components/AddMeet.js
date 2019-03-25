@@ -40,8 +40,9 @@ class Results extends Component {
                      {item[0]} <span style={{color: 'rgb(253, 241, 68)'}}>on  </span>
                      {item[1]} <span style={{color: 'rgb(253, 241, 68)'}}>in  </span>
                      {item[2]}
-                     <span style={{color: 'rgb(253, 241, 68)', float: 'right', marginRight:"0.6rem", display:"inline-block"}}> Men: {this.props.menCount}</span>
-                     <span style={{color: 'rgb(253, 241, 68)', float: 'right', marginRight:"0.6rem"}}> Women: {this.props.womenCount} </span>
+                    
+                     <span style={{float: 'right', marginRight:"0.6rem"}}> Men: <span style={{color: 'rgb(253, 241, 68)'}}>{this.props.menCount}</span> </span>
+                     <span style={{float: 'right', marginRight:"0.6rem"}}> Women: <span style={{color: 'rgb(253, 241, 68)'}}>{this.props.womenCount}</span> </span>
                      </h2>
         })  
         return (
